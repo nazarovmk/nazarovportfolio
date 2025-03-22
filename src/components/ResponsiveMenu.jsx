@@ -11,9 +11,9 @@ const ResponsiveMenu = ({ open, setOpen }) => {
     <div
       className={`${
         open ? "left-0" : "left-[100%]"
-      } fixed bottom-0 top-0 z-20 flex h-screen w-[75%] flex-col justify-between bg-gray-950 px-4 pb-6 pt-6 text-black md:hidden rounded-r-xl shadow-md transition-all`}
+      } fixed bottom-0 top-0 z-20 overflow-auto flex h-screen w-[80%] flex-col justify-between bg-gray-950 px-2 pb-4 pt-4 text-black md:hidden rounded-r-xl shadow-md transition-all`}
     >
-      <div className="bg-gray-600 rounded-md p-4">
+      <div className="bg-gray-600 rounded-md p-2">
         <div className="rounded-xl p-3 flex items-center justify-center">
           <img
             src={avatar}
@@ -83,6 +83,21 @@ const ResponsiveMenu = ({ open, setOpen }) => {
             <div className="text-white">
               <h1 className="font-semibold">PHONE</h1>
               <p className="text-gray-200">+998 90-777-28-23</p>
+            </div>
+          </div>
+          <div className="flex gap-3 items-center">
+            <div className="bg-gray-700 p-2 rounded-md shadow">
+              <FaRegCalendarAlt className="text-yellow-500 text-2xl" />
+            </div>
+            <div className="text-white">
+              <h1 className="font-semibold">Telegram</h1>
+              <a
+                href="https://t.me/nazarov_mk"
+                target="_blank"
+                className="text-gray-200 hover:text-yellow-400 transition"
+              >
+                nazarov_mk
+              </a>
             </div>
           </div>
           <div className="flex gap-3 items-center">

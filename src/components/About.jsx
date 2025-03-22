@@ -5,7 +5,7 @@ import { GiCheckMark } from "react-icons/gi";
 
 const About = () => {
   return (
-    <div className="md:rounded-xl bg-gray-600 md:m-7 flex-1 p-7">
+    <div className="md:rounded-xl bg-gray-600 md:m-7 flex-1 p-5">
       <Navbar />
       <div className="mt-7">
         <h1 className="text-white font-bold text-3xl mb-2">About Me</h1>

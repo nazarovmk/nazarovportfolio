@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 
 const Portfolio = () => {
   return (
-    <div className="md:rounded-xl bg-gray-600 md:m-7 flex-1 p-7">
+    <div className="md:rounded-xl bg-gray-600 md:m-7 flex-1 p-5">
       <Navbar />
       <div className="mt-7">
         <h2 className="text-white font-bold text-3xl mb-2">Portfolio</h2>
