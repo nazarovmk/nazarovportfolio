@@ -1,4 +1,5 @@
 import {
+  FaGithub,
   FaMapMarkedAlt,
   FaRegCalendarAlt,
   FaRegEnvelope,
@@ -42,6 +43,21 @@ const Sidebar = () => {
             <div className="text-white">
               <h1 className="font-semibold">PHONE</h1>
               <p className="text-gray-200">+998 90-777-28-23</p>
+            </div>
+          </div>
+          <div className="flex gap-3 items-center">
+            <div className="bg-gray-700 p-2 rounded-md shadow">
+              <FaGithub className="text-yellow-500 text-2xl" />
+            </div>
+            <div className="text-white">
+              <h1 className="font-semibold">GitHub</h1>
+              <a
+                href="https://github.com/nazarovmk"
+                target="_blank"
+                className="text-gray-200 hover:text-yellow-400 transition"
+              >
+                nazarovmk
+              </a>
             </div>
           </div>
           <div className="flex gap-3 items-center">

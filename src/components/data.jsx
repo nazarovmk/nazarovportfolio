@@ -29,26 +29,6 @@ import CoffeeRoasters from "../assets/CoffeeRoasters.jpg";
 import Desserts from "../assets/Desserts.jpg";
 import Product from "../assets/Product.jpg";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBriefcase,
-  faSchool,
-  faStar,
-} from "@fortawesome/free-solid-svg-icons";
-
-const workIcon = {
-  icon: <FontAwesomeIcon icon={faBriefcase} />,
-  iconStyle: { background: "rgb(33, 150, 243)", color: "#fff" },
-};
-const schoolIcon = {
-  icon: <FontAwesomeIcon icon={faSchool} />,
-  iconStyle: { background: "rgb(233, 30, 99)", color: "#fff" },
-};
-const starIcon = {
-  icon: <FontAwesomeIcon icon={faStar} />,
-  iconStyle: { background: "rgb(16, 204, 82)", color: "#fff" },
-};
-
 export const service = [
   {
     title: "React",
@@ -100,59 +80,6 @@ export const service = [
     desc: "Adaptive and user-friendly layouts for all screen sizes",
     logo: <MdDevices />,
   },
-];
-
-export const timeline = [
-  {
-    icon: workIcon,
-    date: "2011 - present",
-    title: "Creative Director",
-    subtitle: "Miami, FL",
-    desc: "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
-  },
-  {
-    icon: workIcon,
-    date: "2010 - 2011",
-    title: "Art Director",
-    subtitle: "San Francisco, CA",
-    desc: "Creative Direction, User Experience, Visual Design, SEO, Online Marketing",
-  },
-  {
-    icon: workIcon,
-    date: "2008 - 2010",
-    title: "Web Designer",
-    subtitle: "Los Angeles, CA",
-    desc: "User Experience, Visual Design",
-  },
-  {
-    icon: workIcon,
-    date: "2021 - 2023",
-    title: "Customer Support Executive",
-    subtitle: "Lyfesolve Marketing Service",
-    desc: "User Experience, Visual Design",
-  },
-  {
-    icon: schoolIcon,
-    date: "2018-2021",
-    title: "Bachelor of Science (BSC)",
-    subtitle: "Bangabasi Morning College",
-    desc: "Strategy, Social Media",
-  },
-  {
-    icon: schoolIcon,
-    date: "2016-2018",
-    title: "Higher Secondary (HS)",
-    subtitle: "Adarsh Madhyamik Vidhyalaya",
-    desc: "Creative Direction, User Experience, Visual Design",
-  },
-  {
-    icon: schoolIcon,
-    date: "2016",
-    title: "Madhyamik (10th)",
-    subtitle: "A.R.N.C Vidhyalaya",
-    desc: "Creative Direction, Visual Design",
-  },
-  { icon: starIcon },
 ];
 
 export const projects = [
