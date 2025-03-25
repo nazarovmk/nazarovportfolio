@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {
   FaGithub,
   FaMapMarkedAlt,
@@ -7,7 +10,19 @@ import {
 import avatar from "../assets/avatar.avif";
 import { MdOutlinePhoneIphone } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+
 const ResponsiveMenu = ({ open, setOpen }) => {
+  useEffect(() => {
+    const savedMenuState = localStorage.getItem("menuOpen") === "true";
+    if (savedMenuState !== open) {
+      setOpen(savedMenuState);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("menuOpen", open);
+  }, [open]);
+
   return (
     <div
       className={`${
@@ -18,122 +33,115 @@ const ResponsiveMenu = ({ open, setOpen }) => {
         <div className="rounded-xl p-3 flex items-center justify-center">
           <img
             src={avatar}
-            alt=""
+            alt="Avatar"
             className="w-[200px] bg-gray-700 rounded-2xl"
+            data-aos="flip-down"
           />
         </div>
-        <h1 className="text-white font-bold text-center text-3xl my-2">
+        <h1
+          className="text-white font-bold text-center text-3xl my-2"
+          data-aos="zoom-in"
+        >
           Muhammadnazar Nazarov
         </h1>
-        <p className="text-white bg-gray-700 rounded-md py-2 text-center mx-4 mb-7">
+        <p
+          className="text-white bg-gray-700 rounded-md py-2 text-center mx-4 mb-7"
+          data-aos="zoom-in"
+        >
           Frontend Developer
         </p>
         <hr className="text-gray-700 mx-4 border-2" />
 
         <nav className="mt-5">
-          <ul className="flex flex-wrap text-center gap-2 items-center justify-center text-white text-xl font-semibold">
-            <NavLink
-              to={"/"}
-              className={({ isActive }) =>
-                `${isActive ? "text-yellow-500" : "text-white"} cursor-pointer`
-              }
-            >
-              <li>About</li>
-            </NavLink>
-            <NavLink
-              to={"/resume"}
-              className={({ isActive }) =>
-                `${isActive ? "text-yellow-500" : "text-white"} cursor-pointer`
-              }
-            >
-              <li>Resume</li>
-            </NavLink>
-            <NavLink
-              to={"/portfolio"}
-              className={({ isActive }) =>
-                `${isActive ? "text-yellow-500" : "text-white"} cursor-pointer`
-              }
-            >
-              <li>Portfolio</li>
-            </NavLink>
-            <NavLink
-              to={"/contact"}
-              className={({ isActive }) =>
-                `${isActive ? "text-yellow-500" : "text-white"} cursor-pointer`
-              }
-            >
-              <li>Contact</li>
-            </NavLink>
+          <ul
+            className="flex flex-wrap text-center gap-2 items-center justify-center text-white text-xl font-semibold"
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
+          >
+            {[
+              { to: "/", label: "About" },
+              { to: "/resume", label: "Resume" },
+              { to: "/portfolio", label: "Portfolio" },
+              { to: "/contact", label: "Contact" },
+            ].map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  `${
+                    isActive ? "text-yellow-500" : "text-white"
+                  } cursor-pointer`
+                }
+                onClick={() => setOpen(false)}
+              >
+                <li>{label}</li>
+              </NavLink>
+            ))}
           </ul>
         </nav>
 
-        <div className="mt-7 px-4 space-y-7">
-          <div className="flex gap-3 items-center">
-            <div className="bg-gray-700 p-2 rounded-md shadow">
-              <FaRegEnvelope className="text-yellow-500 text-2xl" />
+        <div
+          className="mt-7 px-4 space-y-7"
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+        >
+          {[
+            {
+              icon: <FaRegEnvelope className="text-yellow-500 text-2xl" />,
+              title: "EMAIL",
+              value: "nazarovvweb@gmail.com",
+            },
+            {
+              icon: (
+                <MdOutlinePhoneIphone className="text-yellow-500 text-2xl" />
+              ),
+              title: "PHONE",
+              value: "+998 90-777-28-23",
+            },
+            {
+              icon: <FaGithub className="text-yellow-500 text-2xl" />,
+              title: "GitHub",
+              value: "nazarovmk",
+              link: "https://github.com/nazarovmk",
+            },
+            {
+              icon: <FaRegCalendarAlt className="text-yellow-500 text-2xl" />,
+              title: "Telegram",
+              value: "nazarov_mk",
+              link: "https://t.me/nazarov_mk",
+            },
+            {
+              icon: <FaRegCalendarAlt className="text-yellow-500 text-2xl" />,
+              title: "BIRTHDAY",
+              value: "31 August, 2008",
+            },
+            {
+              icon: <FaMapMarkedAlt className="text-yellow-500 text-2xl" />,
+              title: "LOCATION",
+              value: "Uzbekistan, Fergana",
+            },
+          ].map((item, index) => (
+            <div key={index} className="flex gap-3 items-center">
+              <div className="bg-gray-700 p-2 rounded-md shadow">
+                {item.icon}
+              </div>
+              <div className="text-white">
+                <h1 className="font-semibold">{item.title}</h1>
+                {item.link ? (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-200 hover:text-yellow-400 transition"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <p className="text-gray-200">{item.value}</p>
+                )}
+              </div>
             </div>
-            <div className="text-white">
-              <h1 className="font-semibold">EMAIL</h1>
-              <p className="text-gray-200">nazarovvweb@gmail.com</p>
-            </div>
-          </div>
-          <div className="flex gap-3 items-center">
-            <div className="bg-gray-700 p-2 rounded-md shadow">
-              <MdOutlinePhoneIphone className="text-yellow-500 text-2xl" />
-            </div>
-            <div className="text-white">
-              <h1 className="font-semibold">PHONE</h1>
-              <p className="text-gray-200">+998 90-777-28-23</p>
-            </div>
-          </div>
-          <div className="flex gap-3 items-center">
-            <div className="bg-gray-700 p-2 rounded-md shadow">
-              <FaGithub className="text-yellow-500 text-2xl" />
-            </div>
-            <div className="text-white">
-              <h1 className="font-semibold">GitHub</h1>
-              <a
-                href="https://github.com/nazarovmk"
-                target="_blank"
-                className="text-gray-200 hover:text-yellow-400 transition"
-              >
-                nazarovmk
-              </a>
-            </div>
-          </div>
-          <div className="flex gap-3 items-center">
-            <div className="bg-gray-700 p-2 rounded-md shadow">
-              <FaRegCalendarAlt className="text-yellow-500 text-2xl" />
-            </div>
-            <div className="text-white">
-              <h1 className="font-semibold">Telegram</h1>
-              <a
-                href="https://t.me/nazarov_mk"
-                target="_blank"
-                className="text-gray-200 hover:text-yellow-400 transition"
-              >
-                nazarov_mk
-              </a>
-            </div>
-          </div>
-          <div className="flex gap-3 items-center">
-            <div className="bg-gray-700 p-2 rounded-md shadow">
-              <FaRegCalendarAlt className="text-yellow-500 text-2xl" />
-            </div>
-            <div className="text-white">
-              <h1 className="font-semibold">BIRTHDAY</h1>
-              <p className="text-gray-200">31 August, 2008</p>
-            </div>
-          </div>
-          <div className="flex gap-3 items-center">
-            <div className="bg-gray-700 p-2 rounded-md shadow">
-              <FaMapMarkedAlt className="text-yellow-500 text-2xl" />
-            </div>
-            <div className="text-white">
-              <h1 className="font-semibold">LOCATION</h1>
-              <p className="text-gray-200">"Uzbekistan, Fergana"</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
