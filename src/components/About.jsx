@@ -51,12 +51,12 @@ const About = () => {
         <h2 className="text-2xl text-white font-bold mt-7" data-aos="fade-up">
           My Skills
         </h2>
-        <div className="grid md:grid-cols-2 gap-6 mt-7">
+        <div className="grid md:grid-cols-2 gap-6 mt-7 pb-10">
           {service.map((item, index) => {
             return (
               <div
                 className="bg-gray-700 border shadow p-5 text-white flex gap-5 items-start rounded-xl"
-                data-aos="flip-up"
+                data-aos="flip-left"
                 key={index}
               >
                 <div className="text-6xl text-yellow-500">{item.logo}</div>

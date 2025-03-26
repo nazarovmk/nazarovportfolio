@@ -39,7 +39,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
         open ? "left-0" : "left-[100%]"
       } fixed bottom-0 top-0 z-20 overflow-auto flex h-screen w-[80%] flex-col justify-between bg-gray-950 px-2 pb-4 pt-4 text-black md:hidden rounded-r-xl shadow-md transition-all`}
     >
-      <div className="bg-gray-600 rounded-md p-2 overflow-hidden">
+      <div className="bg-gray-600 rounded-md p-2">
         <div
           className="rounded-xl p-3 flex items-center justify-center"
           data-aos="flip-down"
@@ -83,7 +83,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
             ))}
           </ul>
         </nav>
-        <div className="mt-7 px-4 space-y-7" data-aos="fade-right">
+        <div className="mt-7 px-4 space-y-7">
           {[
             {
               icon: <FaRegEnvelope className="text-yellow-500 text-2xl" />,
@@ -120,11 +120,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
               value: "Uzbekistan, Fergana",
             },
           ].map((item, index) => (
-            <div
-              key={index}
-              className="flex gap-3 items-center"
-              data-aos="fade-up"
-            >
+            <div key={index} className="flex gap-3 items-center">
               <div className="bg-gray-700 p-2 rounded-md shadow">
                 {item.icon}
               </div>
