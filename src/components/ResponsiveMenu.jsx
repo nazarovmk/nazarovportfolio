@@ -40,16 +40,17 @@ const ResponsiveMenu = ({ open, setOpen }) => {
         </div>
         <h1
           className="text-white font-bold text-center text-3xl my-2"
-          data-aos="zoom-in"
+          data-aos="none"
         >
           Muhammadnazar Nazarov
         </h1>
         <p
           className="text-white bg-gray-700 rounded-md py-2 text-center mx-4 mb-7"
-          data-aos="zoom-in"
+          data-aos="none"
         >
           Frontend Developer
         </p>
+
         <hr className="text-gray-700 mx-4 border-2" />
 
         <nav className="mt-5">

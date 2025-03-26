@@ -12,7 +12,6 @@ const Resume = () => {
           <hr className="border-2 sm:border-4 border-yellow-500 w-10 sm:w-12 md:w-16 rounded-full mb-6 md:mb-8" />
         </div>
 
-        {/* Resume Card */}
         <div className="min-h-[calc(100vh-12rem)] w-full rounded-2xl bg-white shadow-xl overflow-hidden flex flex-col">
           {/* Header */}
           <div

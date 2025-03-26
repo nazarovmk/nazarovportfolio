@@ -35,9 +35,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="md:rounded-xl bg-gray-600 md:m-7 flex-1 p-5">
+    <div className="md:rounded-xl bg-gray-600 md:m-7 flex-1 p-5 overflow-hidden">
       <Navbar />
-      <div className="mt-7">
+      <div className="mt-7 overflow-x-hidden">
         <div data-aos="fade-up" data-aos-duration="500">
           <h2 className="text-white font-bold text-3xl mb-2">Contact Me</h2>
           <hr className="border-3 text-yellow-500 w-12 rounded-4xl" />
