@@ -23,41 +23,44 @@ const ResponsiveMenu = ({ open, setOpen }) => {
     localStorage.setItem("menuOpen", open);
   }, [open]);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 400,
+      easing: "ease-out",
+      once: false,
+      delay: 0,
+      offset: 150,
+    });
+  }, []);
+
   return (
     <div
       className={`${
         open ? "left-0" : "left-[100%]"
       } fixed bottom-0 top-0 z-20 overflow-auto flex h-screen w-[80%] flex-col justify-between bg-gray-950 px-2 pb-4 pt-4 text-black md:hidden rounded-r-xl shadow-md transition-all`}
     >
-      <div className="bg-gray-600 rounded-md p-2">
-        <div className="rounded-xl p-3 flex items-center justify-center">
+      <div className="bg-gray-600 rounded-md p-2 overflow-hidden">
+        <div
+          className="rounded-xl p-3 flex items-center justify-center"
+          data-aos="flip-down"
+        >
           <img
             src={avatar}
             alt="Avatar"
             className="w-[200px] bg-gray-700 rounded-2xl"
-            data-aos="flip-down"
           />
         </div>
-        <h1
-          className="text-white font-bold text-center text-3xl my-2"
-          data-aos="none"
-        >
+        <h1 className="text-white font-bold text-center text-3xl my-2">
           Muhammadnazar Nazarov
         </h1>
-        <p
-          className="text-white bg-gray-700 rounded-md py-2 text-center mx-4 mb-7"
-          data-aos="none"
-        >
+        <p className="text-white bg-gray-700 rounded-md py-2 text-center mx-4 mb-7">
           Frontend Developer
         </p>
-
         <hr className="text-gray-700 mx-4 border-2" />
-
         <nav className="mt-5">
           <ul
             className="flex flex-wrap text-center gap-2 items-center justify-center text-white text-xl font-semibold"
             data-aos="fade-up"
-            data-aos-anchor-placement="center-bottom"
           >
             {[
               { to: "/", label: "About" },
@@ -80,12 +83,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
             ))}
           </ul>
         </nav>
-
-        <div
-          className="mt-7 px-4 space-y-7"
-          data-aos="fade-up"
-          data-aos-anchor-placement="center-bottom"
-        >
+        <div className="mt-7 px-4 space-y-7" data-aos="fade-right">
           {[
             {
               icon: <FaRegEnvelope className="text-yellow-500 text-2xl" />,
@@ -122,7 +120,11 @@ const ResponsiveMenu = ({ open, setOpen }) => {
               value: "Uzbekistan, Fergana",
             },
           ].map((item, index) => (
-            <div key={index} className="flex gap-3 items-center">
+            <div
+              key={index}
+              className="flex gap-3 items-center"
+              data-aos="fade-up"
+            >
               <div className="bg-gray-700 p-2 rounded-md shadow">
                 {item.icon}
               </div>
