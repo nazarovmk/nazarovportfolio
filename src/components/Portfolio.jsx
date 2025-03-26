@@ -28,7 +28,7 @@ const Portfolio = () => {
       <Navbar
         className="overflow-hidden max-w-full"
         data-aos="fade-down"
-        data-aos-duration="300"
+        data-aos-duration="500"
       />
 
       <div className="mt-7">

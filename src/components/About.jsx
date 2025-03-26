@@ -1,9 +1,13 @@
+import { useEffect } from "react";
 import Navbar from "./Navbar";
 import avatar from "../assets/avatar.avif";
 import { service } from "./data";
 import { GiCheckMark } from "react-icons/gi";
+import useAos from "../hooks/Aos"; // Hook'ni import qilamiz
 
 const About = () => {
+  useAos(); // AOS animatsiyalarini ishga tushiramiz
+
   return (
     <div className="md:rounded-xl bg-gray-600 md:m-7 flex-1 p-5">
       <Navbar />
@@ -57,6 +61,8 @@ const About = () => {
               <div
                 className="bg-gray-700 border shadow p-5 text-white flex gap-5 items-start rounded-xl"
                 data-aos="flip-left"
+                data-aos-duration="500"
+                data-aos-delay="100"
                 key={index}
               >
                 <div className="text-6xl text-yellow-500">{item.logo}</div>

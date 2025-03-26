@@ -149,7 +149,7 @@ const Resume = () => {
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 border-b-2 border-teal-500 pb-1">
                   Work Experience
                 </h2>
-                <div className="mt-4 space-y-4 md:space-y-6">
+                <div className="mt-4 space-y-4 md:space-y-6 pb-21">
                   <div>
                     <h3 className="text-base sm:text-lg md:text-xl font-medium text-gray-700">
                       Junior Frontend Developer
