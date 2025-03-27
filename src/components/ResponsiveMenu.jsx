@@ -67,7 +67,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
         open ? "left-0" : "left-[100%]"
       }`}
     >
-      <div className="bg-gray-600 rounded-md p-2">
+      <div className="bg-gray-600 rounded-md p-2 overflow-auto custom-scrollbar">
         <div
           className="rounded-xl p-3 flex items-center justify-center"
           data-aos="flip-down"
