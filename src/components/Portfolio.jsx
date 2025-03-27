@@ -1,122 +1,72 @@
-import { useEffect } from "react";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { Link } from "react-router-dom";
-import { projects } from "./data";
 import Navbar from "./Navbar";
+import { projects } from "./data";
 import { FaGithub } from "react-icons/fa";
+import useAos from "../hooks/Aos";
+import { Link } from "react-router-dom";
 
 const Portfolio = () => {
-  useEffect(() => {
-    Aos.init({
-      easing: "ease-out-back",
-      once: false,
-      offset: 100, // Element qanchalik pastga kelganda animatsiya ishlaydi
-      duration: 600, // Animatsiya tezligi
-    });
-
-    const handleScroll = () => {
-      Aos.refresh(); // Skroll qilinganda AOS-ni yangilash
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useAos();
 
   return (
-    <div className="md:rounded-xl bg-gray-600 md:m-7 flex-1 p-5 pb-20 min-h-screen overflow-x-hidden">
-      <Navbar
-        className="overflow-hidden max-w-full"
-        data-aos="fade-down"
-        data-aos-duration="500"
-      />
+    <div className="md:rounded-xl bg-gray-600 md:m-7 flex-1 p-5 min-h-screen">
+      <Navbar />
 
       <div className="mt-7">
-        <div data-aos="zoom-in" data-aos-duration="400">
-          <h2 className="text-white font-bold text-3xl mb-2">Portfolio</h2>
-          <hr className="border-2 text-yellow-500 w-10" />
+        <div data-aos="fade-up">
+          <h2 className="text-white font-bold text-2xl mb-2">Portfolio</h2>
+          <hr className="border-3 border-yellow-500 w-12 rounded-4xl" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-7">
-          {projects.map((project, index) => {
-            const duration = 400 + index * 80;
-            const delay = index * 50;
-
-            return (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-7">
+          {projects.map(
+            ({ id, image, title, description, techStack, link, github }) => (
               <div
-                key={index}
-                className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105"
-                data-aos="fade-up"
-                data-aos-duration={duration}
-                data-aos-delay={delay}
+                key={id}
+                className="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-transform hover:scale-105"
+                data-aos="flip-left"
               >
                 <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full max-w-[100%] h-48 object-cover px-2 sm:px-3 pt-2 sm:pt-3 rounded-xl"
-                  data-aos="zoom-in"
-                  data-aos-duration={duration - 100}
+                  src={image}
+                  alt={title}
+                  className="w-full h-48 object-cover rounded-t-xl"
                 />
-                <div className="p-4 sm:p-5 md:p-6">
-                  <h3
-                    className="text-2xl font-semibold text-gray-300 mb-2"
-                    data-aos="flip-right"
-                    data-aos-duration={duration + 100}
-                  >
-                    {project.title}
+                <div className="p-5">
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    {title}
                   </h3>
-                  <p
-                    className="text-gray-300 mb-4"
-                    data-aos="slide-up"
-                    data-aos-duration={duration + 200}
-                  >
-                    {project.description}
-                  </p>
-                  <div
-                    className="flex flex-wrap gap-2 mb-4"
-                    data-aos="fade-left"
-                    data-aos-duration={duration - 50}
-                  >
-                    {project.techStack.map((tech, idx) => (
-                      <div
+                  <p className="text-gray-300 mb-3">{description}</p>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {techStack.map((tech, idx) => (
+                      <span
                         key={idx}
-                        className="bg-gray-900 text-gray-300 text-sm font-medium px-3 py-1 rounded-full"
-                        data-aos="zoom-in"
-                        data-aos-duration={duration - 150}
+                        className="bg-gray-900 text-gray-300 text-sm px-3 py-1 rounded-full"
                       >
                         {tech}
-                      </div>
+                      </span>
                     ))}
                   </div>
-                  <div
-                    className="flex sm:flex-row gap-3"
-                    data-aos="fade-up"
-                    data-aos-duration={duration + 100}
-                  >
+                  <div className="flex gap-3">
                     <Link
-                      to={project.link}
+                      to={link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-600 transition-colors"
+                      className="btn-primary"
                     >
                       View Project
                     </Link>
                     <Link
-                      to={project.github}
+                      to={github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex gap-2 items-center bg-gray-900 text-white px-6 py-2 rounded-lg shadow-md transition-transform"
-                      data-aos="fade-left"
-                      data-aos-duration={duration}
-                      data-aos-delay="50"
+                      className="btn-secondary"
                     >
                       <FaGithub /> Github
                     </Link>
                   </div>
                 </div>
               </div>
-            );
-          })}
+            )
+          )}
         </div>
       </div>
     </div>

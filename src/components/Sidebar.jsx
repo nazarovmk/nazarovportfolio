@@ -1,5 +1,4 @@
 import useAos from "../hooks/Aos";
-
 import {
   FaGithub,
   FaMapMarkedAlt,
@@ -8,7 +7,7 @@ import {
   FaTelegramPlane,
 } from "react-icons/fa";
 import { MdOutlinePhoneIphone } from "react-icons/md";
-import avatar from "../assets/avatar.avif";
+import avatar from "../assets/me-img.jpg";
 
 const Sidebar = () => {
   useAos();
@@ -20,7 +19,7 @@ const Sidebar = () => {
           <img
             src={avatar}
             alt=""
-            className="w-[200px] bg-gray-700 rounded-2xl"
+            className="w-[200px] h-[200px] bg-gray-700 rounded-2xl object-cover"
             data-aos="flip-left"
             data-aos-anchor-placement="top-bottom"
           />

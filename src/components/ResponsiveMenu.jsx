@@ -7,17 +7,45 @@ import {
   FaRegCalendarAlt,
   FaRegEnvelope,
 } from "react-icons/fa";
-import avatar from "../assets/avatar.avif";
 import { MdOutlinePhoneIphone } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import avatar from "../assets/nazosh.jpg";
+
+const navLinks = [
+  { to: "/", label: "About" },
+  { to: "/resume", label: "Resume" },
+  { to: "/portfolio", label: "Portfolio" },
+  { to: "/contact", label: "Contact" },
+];
+
+const contactInfo = [
+  { icon: <FaRegEnvelope />, title: "EMAIL", value: "nazarovvweb@gmail.com" },
+  {
+    icon: <MdOutlinePhoneIphone />,
+    title: "PHONE",
+    value: "+998 90-777-28-23",
+  },
+  {
+    icon: <FaGithub />,
+    title: "GitHub",
+    value: "nazarovmk",
+    link: "https://github.com/nazarovmk",
+  },
+  {
+    icon: <FaRegCalendarAlt />,
+    title: "Telegram",
+    value: "nazarov_mk",
+    link: "https://t.me/nazarov_mk",
+  },
+  { icon: <FaRegCalendarAlt />, title: "BIRTHDAY", value: "31 August, 2008" },
+  { icon: <FaMapMarkedAlt />, title: "LOCATION", value: "Uzbekistan, Fergana" },
+];
 
 const ResponsiveMenu = ({ open, setOpen }) => {
   useEffect(() => {
     const savedMenuState = localStorage.getItem("menuOpen") === "true";
-    if (savedMenuState !== open) {
-      setOpen(savedMenuState);
-    }
-  }, []);
+    if (savedMenuState !== open) setOpen(savedMenuState);
+  }, [setOpen]);
 
   useEffect(() => {
     localStorage.setItem("menuOpen", open);
@@ -35,9 +63,9 @@ const ResponsiveMenu = ({ open, setOpen }) => {
 
   return (
     <div
-      className={`${
+      className={`fixed bottom-0 top-0 z-20 flex h-screen w-[80%] flex-col justify-between bg-gray-950 px-2 pb-4 pt-4 text-black md:hidden rounded-r-xl shadow-md transition-all ${
         open ? "left-0" : "left-[100%]"
-      } fixed bottom-0 top-0 z-20 overflow-auto flex h-screen w-[80%] flex-col justify-between bg-gray-950 px-2 pb-4 pt-4 text-black md:hidden rounded-r-xl shadow-md transition-all`}
+      }`}
     >
       <div className="bg-gray-600 rounded-md p-2">
         <div
@@ -47,7 +75,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
           <img
             src={avatar}
             alt="Avatar"
-            className="w-[200px] bg-gray-700 rounded-2xl"
+            className="w-[200px] h-[200px] object-cover bg-gray-700 rounded-2xl"
           />
         </div>
         <h1 className="text-white font-bold text-center text-3xl my-2">
@@ -57,17 +85,13 @@ const ResponsiveMenu = ({ open, setOpen }) => {
           Frontend Developer
         </p>
         <hr className="text-gray-700 mx-4 border-2" />
+
         <nav className="mt-5">
           <ul
             className="flex flex-wrap text-center gap-2 items-center justify-center text-white text-xl font-semibold"
             data-aos="fade-up"
           >
-            {[
-              { to: "/", label: "About" },
-              { to: "/resume", label: "Resume" },
-              { to: "/portfolio", label: "Portfolio" },
-              { to: "/contact", label: "Contact" },
-            ].map(({ to, label }) => (
+            {navLinks.map(({ to, label }) => (
               <NavLink
                 key={to}
                 to={to}
@@ -83,60 +107,26 @@ const ResponsiveMenu = ({ open, setOpen }) => {
             ))}
           </ul>
         </nav>
+
         <div className="mt-7 px-4 space-y-7">
-          {[
-            {
-              icon: <FaRegEnvelope className="text-yellow-500 text-2xl" />,
-              title: "EMAIL",
-              value: "nazarovvweb@gmail.com",
-            },
-            {
-              icon: (
-                <MdOutlinePhoneIphone className="text-yellow-500 text-2xl" />
-              ),
-              title: "PHONE",
-              value: "+998 90-777-28-23",
-            },
-            {
-              icon: <FaGithub className="text-yellow-500 text-2xl" />,
-              title: "GitHub",
-              value: "nazarovmk",
-              link: "https://github.com/nazarovmk",
-            },
-            {
-              icon: <FaRegCalendarAlt className="text-yellow-500 text-2xl" />,
-              title: "Telegram",
-              value: "nazarov_mk",
-              link: "https://t.me/nazarov_mk",
-            },
-            {
-              icon: <FaRegCalendarAlt className="text-yellow-500 text-2xl" />,
-              title: "BIRTHDAY",
-              value: "31 August, 2008",
-            },
-            {
-              icon: <FaMapMarkedAlt className="text-yellow-500 text-2xl" />,
-              title: "LOCATION",
-              value: "Uzbekistan, Fergana",
-            },
-          ].map((item, index) => (
+          {contactInfo.map(({ icon, title, value, link }, index) => (
             <div key={index} className="flex gap-3 items-center">
-              <div className="bg-gray-700 p-2 rounded-md shadow">
-                {item.icon}
+              <div className="bg-gray-700 p-2 rounded-md shadow text-yellow-500 text-2xl">
+                {icon}
               </div>
               <div className="text-white">
-                <h1 className="font-semibold">{item.title}</h1>
-                {item.link ? (
+                <h1 className="font-semibold">{title}</h1>
+                {link ? (
                   <a
-                    href={item.link}
+                    href={link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-200 hover:text-yellow-400 transition"
                   >
-                    {item.value}
+                    {value}
                   </a>
                 ) : (
-                  <p className="text-gray-200">{item.value}</p>
+                  <p className="text-gray-200">{value}</p>
                 )}
               </div>
             </div>
