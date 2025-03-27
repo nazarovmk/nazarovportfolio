@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import avatar from "../assets/me-img.jpg";
+import avatar from "../assets/nazosh.jpg";
 import { service } from "./data";
 import { GiCheckMark } from "react-icons/gi";
 import useAos from "../hooks/Aos";

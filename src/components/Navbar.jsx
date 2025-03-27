@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Logo from "../assets/mk-logo.jpg";
+import Logo from "../assets/nazarov_logo.png";
 import { useState } from "react";
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import ResponsiveMenu from "./ResponsiveMenu";
