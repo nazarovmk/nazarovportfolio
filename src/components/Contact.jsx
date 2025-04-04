@@ -3,6 +3,8 @@ import { FaPaperPlane } from "react-icons/fa";
 import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import toast from "react-hot-toast";
+import Loader from "./Loader";
 
 const Contact = () => {
   const [phone, setPhone] = useState("");
@@ -18,7 +20,7 @@ const Contact = () => {
     setMessage("");
 
     const formData = new FormData(e.target);
-    formData.append("number", phone); // Telefon raqamini qo'shamiz
+    formData.append("number", phone);
 
     try {
       const response = await fetch(scriptURL, {
@@ -27,14 +29,14 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        setMessage("Message sent successfully!");
+        toast.success("Message sent successfully");
         e.target.reset();
-        setPhone(""); // Telefon raqamini tozalash
+        setPhone("");
       } else {
-        setMessage("Failed to send message. Try again.");
+        toast.error("Failed to send message. Try again.");
       }
     } catch (error) {
-      setMessage("Error occurred! Please try again.");
+      toast.error("Error occurred! Please try again.");
     } finally {
       setLoading(false);
     }
@@ -119,14 +121,16 @@ const Contact = () => {
             ></textarea>
 
             <div className="w-full flex justify-center md:justify-end">
-              <button
-                type="submit"
-                className="w-full md:w-auto flex gap-3 items-center px-6 py-3 rounded-xl font-semibold bg-gray-800 text-yellow-600 border-2 border-gray-500 cursor-pointer hover:bg-yellow-600 hover:text-black transition hover:scale-105"
-                disabled={loading}
-              >
-                <FaPaperPlane />
-                {loading ? "Sending..." : "Send Message"}
-              </button>
+              <div className="overflow-hidden">
+                <button
+                  type="submit"
+                  className="w-full md:w-auto flex gap-3 items-center px-6 py-3 rounded-xl font-semibold bg-gray-800 text-yellow-600 border-2 border-gray-500 cursor-pointer hover:bg-yellow-600 hover:text-black transition"
+                  disabled={loading}
+                >
+                  <FaPaperPlane />
+                  {loading ? <Loader /> : "Send Message"}
+                </button>
+              </div>
             </div>
 
             {message && (

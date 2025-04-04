@@ -84,15 +84,6 @@ export const service = [
 
 export const projects = [
   {
-    title: "Desserts",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea accusantium impedit facere. Sequi, deserunt recusandae.",
-    techStack: ["JavaScript", "CSS", "React"],
-    link: "https://desserts-lyart.vercel.app/",
-    github: "https://github.com/nazarovmk/desserts",
-    image: Desserts,
-  },
-  {
     title: "Asoschilar Club",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea accusantium impedit facere. Sequi, deserunt recusandae.",
@@ -101,6 +92,15 @@ export const projects = [
     github:
       "https://github.com/nazarovmk/This-is-my-first-project.-Asoschilar-Club",
     image: Digital,
+  },
+  {
+    title: "Desserts",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea accusantium impedit facere. Sequi, deserunt recusandae.",
+    techStack: ["JavaScript", "CSS", "React"],
+    link: "https://desserts-lyart.vercel.app/",
+    github: "https://github.com/nazarovmk/desserts",
+    image: Desserts,
   },
   {
     title: "Product",

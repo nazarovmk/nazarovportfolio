@@ -26,11 +26,16 @@ const Navbar = () => {
               key={index}
               to={path}
               className={({ isActive }) =>
-                `${isActive ? "text-yellow-500" : "text-white"} cursor-pointer`
+                `group relative cursor-pointer ${
+                  isActive ? "text-yellow-500" : "text-white"
+                }`
               }
               data-aos="zoom-out-down"
             >
-              <li>{label}</li>
+              <li className="relative">
+                <span>{label}</span>
+                <span className="absolute left-0 right-0 bottom-0 block h-0.5 bg-yellow-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+              </li>
             </NavLink>
           ))}
         </ul>
