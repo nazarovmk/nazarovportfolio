@@ -28,6 +28,8 @@ import TechBookClub from "../assets/TechBookClub.jpg";
 import CoffeeRoasters from "../assets/CoffeeRoasters.jpg";
 import Desserts from "../assets/Desserts.jpg";
 import Product from "../assets/Product.jpg";
+import { BsFiletypeScss } from "react-icons/bs";
+import { BiLogoTypescript } from "react-icons/bi";
 
 export const service = [
   {
@@ -39,6 +41,16 @@ export const service = [
     title: "JavaScript",
     desc: "Web page animation, DOM manipulation, and asynchronous programming",
     logo: <IoLogoJavascript />,
+  },
+  {
+    title: "Typescript",
+    desc: "TypeScript – a powerful version of JavaScript: it makes your code more precise, reliable, and scalable for large projects",
+    logo: <BiLogoTypescript />,
+  },
+  {
+    title: "Scss",
+    desc: "SCSS – a supercharged version of CSS: it makes your code cleaner, reusable, and easier to manage",
+    logo: <BsFiletypeScss />,
   },
   {
     title: "HTML5",

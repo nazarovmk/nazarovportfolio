@@ -4,6 +4,7 @@ import { useState } from "react";
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import ResponsiveMenu from "./ResponsiveMenu";
 import useAos from "../hooks/Aos";
+import CustomSelect from "./CustomSelect";
 
 const navLinks = [
   { path: "/", label: "About" },
@@ -38,6 +39,7 @@ const Navbar = () => {
               </li>
             </NavLink>
           ))}
+          <CustomSelect />
         </ul>
       </nav>
 
